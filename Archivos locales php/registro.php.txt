@@ -1,0 +1,21 @@
+<?php
+
+	include_once 'conn.php';
+	$nombre = $_POST['nombre'];
+	$apellidos = $_POST['apellidos'];
+	
+	$sql1 = $dbcon->query("SELECT * FROM tblogin WHERE usser= '$usser'");
+	if(mysqli_num_rows($sql1)>0){
+		echo "usser_error";
+	}else{
+	         $sql2 = $dbcon->query("INSERT INTO tblogin(nombre, apellidos, usuario, clave) VALUES('$nombre','$apellidos','$usuario','$clave')")
+                          if($sql2){
+		echo "registrado";
+                          } else {
+		echo "error de registro";
+	         }
+
+}
+
+
+?>

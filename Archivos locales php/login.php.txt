@@ -1,0 +1,15 @@
+<?php
+
+	include_once 'conexion.php';
+	$usser=$_POST['usser'];
+	$pass=$_POST['pass'];
+
+	$sql = $dbcon->query("SELECT * FROM tblogin WHERE usser='$usser' AND pass='$pass'");
+	if(mysqli_num_rows($sql) > 0){
+		echo "login_ok";
+	} else {
+		echo "login_error";
+
+	}
+	
+?>
